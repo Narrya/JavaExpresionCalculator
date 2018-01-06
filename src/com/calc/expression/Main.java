@@ -18,32 +18,12 @@ public class Main {
 
 			try
 			{
-				double number = Double.parseDouble(token);
-				stack.push(number);
+				Number number = new Number(token);
+				stack.push(number.getValue());
 			}
 			catch(NumberFormatException e)
 			{
-				double x = stack.pop();
-				double y = stack.pop();
-
-				switch(token) {
-					case "+":
-						stack.push(y + x);
-						break;
-
-					case "-":
-						stack.push(y - x);
-						break;
-
-					case "*":
-						stack.push(y * x);
-						break;
-
-					case "/":
-						stack.push(y / x);
-						break;
-				}
-
+				TokenOperations.execute(token, stack);
 			}
 		}
 
